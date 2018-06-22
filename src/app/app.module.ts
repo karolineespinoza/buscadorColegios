@@ -19,6 +19,11 @@ import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { SignupPage } from '../pages/signup/signup';
 import { BusquedaPage } from '../pages/busqueda/busqueda';
+import { BusquedaFiltrosPage } from '../pages/busqueda-filtros/busqueda-filtros';
+import { BusquedaGeolocalizacionPage } from '../pages/busqueda-geolocalizacion/busqueda-geolocalizacion';
+import { BusquedaNombrePage } from '../pages/busqueda-nombre/busqueda-nombre';
+import { Geolocation } from '@ionic-native/geolocation';
+import { ResultPage } from '../pages/result/result';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAvYzM1bqFjoVi-VGMHeDbN0XwFsYDtLQ0",
@@ -37,14 +42,18 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     SignupPage,
-    BusquedaPage
+    BusquedaPage,
+    BusquedaFiltrosPage,
+    BusquedaGeolocalizacionPage,
+    BusquedaNombrePage,
+    ResultPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig,'demo104'),
     AngularFireDatabaseModule,
-    NgxErrorsModule
+    NgxErrorsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -54,14 +63,19 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     SignupPage,
-    BusquedaPage
+    BusquedaPage,
+    BusquedaFiltrosPage,
+    BusquedaGeolocalizacionPage,
+    BusquedaNombrePage,
+    ResultPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireAuth,
     AuthService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Geolocation
   ]
 })
 export class AppModule {}

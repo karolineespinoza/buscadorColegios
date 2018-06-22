@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { BusquedaNombrePage } from '../busqueda-nombre/busqueda-nombre';
+import { BusquedaFiltrosPage } from '../busqueda-filtros/busqueda-filtros';
+import { BusquedaGeolocalizacionPage } from '../busqueda-geolocalizacion/busqueda-geolocalizacion';
 /**
  * Generated class for the BusquedaPage page.
  *
@@ -22,4 +25,15 @@ export class BusquedaPage {
     console.log('ionViewDidLoad BusquedaPage');
   }
 
+  buscarPorNombre(){
+    this.navCtrl.push(BusquedaNombrePage);
+  }
+
+  buscarPorFiltros(){
+    this.navCtrl.push(BusquedaFiltrosPage);
+  }
+
+  buscarPorGeolocalizacion(){
+    this.navCtrl.push(BusquedaGeolocalizacionPage);
+  }
 }

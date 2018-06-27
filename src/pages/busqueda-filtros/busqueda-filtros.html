@@ -7,12 +7,30 @@
 <ion-header>
 
     <ion-toolbar color="secondary">
-        <ion-title>... Más filtros</ion-title>
+        <ion-title>Según tus preferencias</ion-title>
       </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-label>Tipo de colegio</ion-label>
+  <ion-item>
+      <ion-select [(ngModel)]="defaultValue.value">
+          <ion-option *ngFor="let tipoColegio of listaTipoColegios">{{tipoColegio}}</ion-option>
+        </ion-select>
+  </ion-item>
+
+  <ion-label>Comuna</ion-label>
+  <ion-item>
+    <ion-select [(ngModel)]="defaultValue.value">
+        <ion-option *ngFor="let comuna of listaComunas">{{comuna}}</ion-option>
+      </ion-select>
+  </ion-item>
+
+  <button ion-button icon-end block (click)="goToResult()">
+      <ion-icon name="start"></ion-icon>
+      Buscar
+    </button>
 
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ResultPage } from '../result/result';
+import { UsuarioModel } from '../../models';
 
 /**
  * Generated class for the BusquedaNombrePage page.
@@ -15,8 +16,13 @@ import { ResultPage } from '../result/result';
   templateUrl: 'busqueda-nombre.html',
 })
 export class BusquedaNombrePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private listaColegios = [];
+  private defaultValue = {
+    value: 'Seleccione'
+  };
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userModel: UsuarioModel) {
+    this.listaColegios = this.userModel.listaColegios;
+    this.listaColegios.push('Seleccione');
   }
 
   ionViewDidLoad() {

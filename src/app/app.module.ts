@@ -24,6 +24,9 @@ import { BusquedaGeolocalizacionPage } from '../pages/busqueda-geolocalizacion/b
 import { BusquedaNombrePage } from '../pages/busqueda-nombre/busqueda-nombre';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ResultPage } from '../pages/result/result';
+import { MicroservicioService } from '../services/microservicio.service';
+import { HttpClientModule } from '@angular/common/http';
+import { UsuarioModel } from '../models';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAvYzM1bqFjoVi-VGMHeDbN0XwFsYDtLQ0",
@@ -54,6 +57,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig,'demo104'),
     AngularFireDatabaseModule,
     NgxErrorsModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -75,7 +79,9 @@ export const firebaseConfig = {
     AngularFireAuth,
     AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Geolocation
+    Geolocation,
+    MicroservicioService,
+    UsuarioModel
   ]
 })
 export class AppModule {}

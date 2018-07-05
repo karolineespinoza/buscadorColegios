@@ -23,10 +23,13 @@ import { BusquedaFiltrosPage } from '../pages/busqueda-filtros/busqueda-filtros'
 import { BusquedaGeolocalizacionPage } from '../pages/busqueda-geolocalizacion/busqueda-geolocalizacion';
 import { BusquedaNombrePage } from '../pages/busqueda-nombre/busqueda-nombre';
 import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps, Geocoder } from '@ionic-native/google-maps';
+import { Toast } from '@ionic-native/toast';
 import { ResultPage } from '../pages/result/result';
 import { MicroservicioService } from '../services/microservicio.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuarioModel } from '../models';
+import { VerMapaPage } from '../pages/ver-mapa/ver-mapa';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAvYzM1bqFjoVi-VGMHeDbN0XwFsYDtLQ0",
@@ -49,7 +52,8 @@ export const firebaseConfig = {
     BusquedaFiltrosPage,
     BusquedaGeolocalizacionPage,
     BusquedaNombrePage,
-    ResultPage
+    ResultPage,
+    VerMapaPage
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,8 @@ export const firebaseConfig = {
     BusquedaFiltrosPage,
     BusquedaGeolocalizacionPage,
     BusquedaNombrePage,
-    ResultPage
+    ResultPage,
+    VerMapaPage
   ],
   providers: [
     StatusBar,
@@ -80,6 +85,9 @@ export const firebaseConfig = {
     AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
+    GoogleMaps,
+    Geocoder,
+    Toast,
     MicroservicioService,
     UsuarioModel
   ]

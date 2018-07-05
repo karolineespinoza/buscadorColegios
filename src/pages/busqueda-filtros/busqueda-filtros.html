@@ -16,15 +16,29 @@
 <ion-content padding>
   <ion-label>Tipo de colegio</ion-label>
   <ion-item>
-      <ion-select [(ngModel)]="defaultValue.value">
-          <ion-option *ngFor="let tipoColegio of listaTipoColegios">{{tipoColegio}}</ion-option>
+      <ion-select placeholder="Seleccionar"  [(ngModel)]="tipoColegio" name="tipoColegio" okText="Aceptar" cancelText="Cancelar">
+          <ion-option value="tipoColegio" *ngFor="let tipoColegio of listaTipoColegios">{{tipoColegio.nombre}}</ion-option>
         </ion-select>
+  </ion-item>
+
+  <ion-label>Region</ion-label>
+  <ion-item>
+    <ion-select placeholder="Seleccionar" [(ngModel)]="region" name="region" okText="Aceptar" cancelText="Cancelar" (ionChange)="cambiarListadoSegunRegion(region);">
+        <ion-option value="region" *ngFor="let region of listaRegiones">{{region.Nombre}}</ion-option>
+      </ion-select>
+  </ion-item>
+
+  <ion-label>Ciudad</ion-label>
+  <ion-item>
+    <ion-select placeholder="Seleccionar" [(ngModel)]="ciudad" name="ciudad" okText="Aceptar" cancelText="Cancelar" (ionChange)="cambiarListadoSegunCiudad();">
+        <ion-option value="ciudad" *ngFor="let ciudad of listaCiudades">{{ciudad.nombre}}</ion-option>
+      </ion-select>
   </ion-item>
 
   <ion-label>Comuna</ion-label>
   <ion-item>
-    <ion-select [(ngModel)]="defaultValue.value">
-        <ion-option *ngFor="let comuna of listaComunas">{{comuna}}</ion-option>
+    <ion-select placeholder="Seleccionar" [(ngModel)]="comuna" name="comuna" okText="Aceptar" cancelText="Cancelar">
+        <ion-option value="comuna" *ngFor="let comuna of listaComunas">{{comuna.nombre}}</ion-option>
       </ion-select>
   </ion-item>
 

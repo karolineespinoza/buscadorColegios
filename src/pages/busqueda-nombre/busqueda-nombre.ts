@@ -21,8 +21,19 @@ export class BusquedaNombrePage {
     value: 'Seleccione'
   };
   constructor(public navCtrl: NavController, public navParams: NavParams, private userModel: UsuarioModel) {
-    this.listaColegios = this.userModel.listaColegios;
-    this.listaColegios.push('Seleccione');
+    
+   /*  this.listaColegios = this.userModel.listaColegios;
+    if(this.listaColegios.indexOf(this.defaultValue.value) == -1){
+      this.listaColegios.push(this.defaultValue.value);
+    } */
+
+    if (this.listaColegios.indexOf(this.defaultValue.value) == -1) {
+      this.listaColegios.push("Seleccionar");
+    }
+
+    this.userModel.listaColegios.forEach(tipo => {
+      this.listaColegios.push(tipo);
+    })
   }
 
   ionViewDidLoad() {

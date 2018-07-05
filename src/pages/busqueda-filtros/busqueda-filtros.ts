@@ -19,25 +19,63 @@ export class BusquedaFiltrosPage {
 
   private listaComunas = [];
   private listaTipoColegios = [];
+  private listaRegiones = [];
+  private listaCiudades = [];
   private defaultValue = {
     value: 'Seleccione'
   };
+  private regionS;
+  private comunaS;
+  private ciudadS;
+  private tiposcolegio;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private userModel: UsuarioModel) {
-    this.listaComunas = this.userModel.listaComunas;
-    this.listaComunas.push('Seleccione');
-    this.listaTipoColegios = this.userModel.listaTipoColegios;
-    this.listaTipoColegios.push('Seleccione');
+
   }
 
   ionViewDidLoad() {
 
     debugger;
-    console.log('ionViewDidLoad BusquedaFiltrosPage');
+    if (this.listaComunas.indexOf(this.defaultValue.value) == -1) {
+      this.listaComunas.push("Seleccionar");
+    }
+
+    this.userModel.listaComunas.forEach(comuna => {
+      this.listaComunas.push(comuna);
+    })
+
+    if (this.listaTipoColegios.indexOf(this.defaultValue.value) == -1) {
+      this.listaTipoColegios.push("Seleccionar");
+    }
+
+    this.userModel.listaTipoColegios.forEach(tipo => {
+      this.listaTipoColegios.push(tipo);
+    })
+
+    if (this.listaCiudades.indexOf(this.defaultValue.value) == -1) {
+      this.listaCiudades.push("Seleccionar");
+    }
+
+    this.userModel.listaCiudades.forEach(ciudad => {
+      this.listaCiudades.push(ciudad);
+    })
+
+    if (this.listaRegiones.indexOf(this.defaultValue.value) == -1) {
+      this.listaRegiones.push("Seleccionar");
+    }
+
+    this.userModel.listaRegiones.forEach(region => {
+      this.listaRegiones.push(region);
+    })
   }
 
-  goToResult(){
+  goToResult() {
     this.navCtrl.push(ResultPage);
+  }
+
+  cambiarListadoSegunRegion(opcionSeleccionada){
+    let regionSeleccionada = opcionSeleccionada;
+    console.log(regionSeleccionada);
   }
 
 }

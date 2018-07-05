@@ -16,8 +16,8 @@
 <ion-content padding>
     <ion-label>Nombre</ion-label>
     <ion-item>
-        <ion-select [(ngModel)]="defaultValue.value">
-            <ion-option *ngFor="let colegios of listaColegios">{{colegios}}</ion-option>
+        <ion-select [(ngModel)]="defaultValue.value" name="nombre" placeholder="Seleccionar">
+            <ion-option *ngFor="let colegios of listaColegios">{{colegios.nombre}}</ion-option>
           </ion-select>
     </ion-item>
   <ion-grid>

@@ -26,6 +26,8 @@ export class HomePage {
         this.userModel.listaColegios = response.colegios;
         this.userModel.listaComunas = response.comunas;
         this.userModel.listaTipoColegios = response.tiposColegio;
+        this.userModel.listaCiudades = response.ciudades;
+        this.userModel.listaRegiones = response.regiones;
       },(error) => {
         console.log("Error: " + error);
       }

@@ -1,8 +1,12 @@
 export class UsuarioModel{
 
-    private _listaComunas: any;
-    private _listaTipoColegios: any;
-    private _listaColegios: any;
+    private _listaComunas: Array<string>;
+    private _listaCiudades: Array<string>;
+    private _listaRegiones: Array<string>;
+    private _listaTipoColegios: Array<string>;
+    private _listaColegios: Array<string>;
+    private _usuarioLogueado: boolean;
+
     constructor() { }
 
 
@@ -11,8 +15,26 @@ export class UsuarioModel{
     }
 
     // Set
-    set listaComunas(param: any) {
+    set listaComunas(param: Array<string>) {
         this._listaComunas = param;
+    }
+
+    get listaCiudades() {
+        return this._listaCiudades;
+    }
+
+    // Set
+    set listaCiudades(param: Array<string>) {
+        this._listaCiudades = param;
+    }
+
+    get listaRegiones() {
+        return this._listaRegiones;
+    }
+
+    // Set
+    set listaRegiones(param: Array<string>) {
+        this._listaRegiones = param;
     }
 
     get listaColegios() {
@@ -20,7 +42,7 @@ export class UsuarioModel{
     }
 
     // Set
-    set listaColegios(param: any) {
+    set listaColegios(param: Array<string>) {
         this._listaColegios = param;
     }
 
@@ -29,10 +51,18 @@ export class UsuarioModel{
     }
 
     // Set
-    set listaTipoColegios(param: any) {
+    set listaTipoColegios(param: Array<string>) {
         this._listaTipoColegios = param;
     }
     
+    get usuarioLogueado() {
+        return this._usuarioLogueado;
+    }
+
+    // Set
+    set usuarioLogueado(param: boolean) {
+        this.usuarioLogueado = param;
+    }
 
 
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
+//import { Geolocation } from '@ionic-native/geolocation';
 import { UsuarioModel } from '../../models';
 declare var google;
 /**
@@ -18,34 +18,30 @@ declare var google;
 export class VerMapaPage {
 
   map;
+  public lat: string;
+  public lon: string;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private geolocation: Geolocation,
-    private loadCtrl: LoadingController, 
+    //private geolocation: Geolocation,
+    private loadCtrl: LoadingController,
     private userModel: UsuarioModel
   ) {
+    console.log(this.navParams.get("data"));
   }
 
 
-   ionViewDidLoad() {
+  ionViewDidLoad() {
     const loading = this.loadCtrl.create();
     loading.present();
 
-    // this.geolocation.getCurrentPosition({
-    //   timeout: 5000,
-    //   enableHighAccuracy: true
-    // })
-    // .then(position => {
-    //   console.log(position.coords.latitude);
-    //   console.log(position.coords.longitude);
-    //   loading.dismiss();
-    //   this.loadMap(position.coords.latitude, position.coords.longitude );
-    // });
-    
+    this.lat = this.navParams.get("latitude");
+    this.lon = this.navParams.get("longitude");
+
     loading.dismiss();
-    this.loadMap(-33.4235293, -70.6451146 );
+    // (-33.4235293, -70.6451146)
+    this.loadMap(Number(this.lat), Number(this.lon));
   }
 
   loadMap(latitude: number, longitude: number) {

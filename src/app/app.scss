@@ -114,3 +114,21 @@ h1.as-header-icon ion-icon{
     padding: 10px 5px;
   }
 }
+
+@font-face {
+	font-family: 'Sweet Hipster';
+	font-weight: 300;
+	font-style: normal;
+	src: url('../assets/fonts/SweetHipster.ttf');
+	src: url('../assets/fonts/SweetHipster.ttf?#iefix') format('truetype'), local('SweetHipster'), local('SweetHipster.ttf'),
+	url('../assets/fonts/SweetHipster.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Sudden Desires';
+	font-weight: 300;
+	font-style: normal;
+	src: url('../assets/fonts/SuddenDesires.ttf');
+	src: url('../assets/fonts/SuddenDesires.ttf?#iefix') format('truetype'), local('SuddenDesires'), local('SuddenDesires.ttf'),
+	url('../assets/fonts/SuddenDesires.ttf') format('truetype');
+}

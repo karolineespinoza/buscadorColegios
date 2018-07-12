@@ -6,6 +6,7 @@ export class UsuarioModel{
     private _listaTipoColegios: Array<string>;
     private _listaColegios: Array<string>;
     private _usuarioLogueado: boolean;
+    private _favoritos: Array<Object>;
 
     constructor() { }
 
@@ -61,7 +62,16 @@ export class UsuarioModel{
 
     // Set
     set usuarioLogueado(param: boolean) {
-        this.usuarioLogueado = param;
+        this._usuarioLogueado = param;
+    }
+
+    get favoritos() {
+        return this._favoritos;
+    }
+
+    // Set
+    set favoritos(param: Array<Object>) {
+        this._favoritos = param;
     }
 
 

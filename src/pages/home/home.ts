@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import {Nav} from 'ionic-angular';
 import { MicroservicioService } from '../../services/microservicio.service';
 
@@ -14,11 +14,18 @@ export class HomePage {
   @ViewChild(Nav) nav: Nav;
   rootPage:any;
 
-  constructor(public navCtrl: NavController, private msService: MicroservicioService, public userModel: UsuarioModel) {
+  constructor(public navCtrl: NavController, private msService: MicroservicioService, public userModel: UsuarioModel,   private loadCtrl: LoadingController) {
 
   }
 
   ionViewDidLoad() {
+    const loading = this.loadCtrl.create({
+      content: `
+      <div class="custom-spinner-container">
+        <div class="custom-spinner-box"></div>
+      </div>`
+    });
+    loading.present();
     console.log('ionViewDidLoad BusquedaFiltrosPage');
 
     this.msService.makeGetRequestSin('microserviciosBuscarColegios', 'obtenerParametria')
@@ -28,7 +35,10 @@ export class HomePage {
         this.userModel.listaTipoColegios = response.tiposColegio;
         this.userModel.listaCiudades = response.ciudades;
         this.userModel.listaRegiones = response.regiones;
+       
+        loading.dismiss();
       },(error) => {
+        loading.dismiss();
         console.log("Error: " + error);
       }
     );

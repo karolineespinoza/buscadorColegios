@@ -6,9 +6,16 @@
     -o-background-size: cover;
 }
 h1 {
-    color: #000000;
-    font-family: Calibri;
-    font-weight: bold;
-    margin-top: 120px !important;
+    text-align: center;
+    color: #03397b;
+    font-family: 'Sweet Hipster';
+    font-size: 110px;
+    //font-weight: bold;
+    margin-top: 200px !important;
     margin-bottom: 150px !important;
-  }
+}
+
+.buttonCenter {
+    text-align: center;
+    
+}

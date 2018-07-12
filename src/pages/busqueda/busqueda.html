@@ -6,27 +6,32 @@
 -->
 <ion-header>
 
-  <ion-toolbar color="primary">
-    <ion-title>Búsqueda</ion-title>
+  <ion-toolbar class="headerBusqueda">
+    <ion-title>Busquedas</ion-title>
   </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    
-  <button ion-button icon-start block (click)="buscarPorNombre()">
+    <label class="preguntas">Conoces el nombre del establecimiento?</label>
+  <button ion-button icon-start block class="btnBusqueda" (click)="buscarPorNombre()">
     <ion-icon name="school"></ion-icon>
-    POR NOMBRE
+    Encuentra el colegio por su nombre 
   </button>
 
-  <button ion-button icon-start block (click)="buscarPorFiltros()">
-    <ion-icon name="funnel"></ion-icon>
-    POR TIPOS DE ESTABLECIMIENTOS
-  </button>
+  <div>
+    <label class="preguntas">Sino, puedes realizar las siguientes búsquedas:</label>
+    <button ion-button icon-start block class="btnBusqueda" (click)="buscarPorGeolocalizacion()">
+      <ion-icon name="pin"></ion-icon>
+      Visualiza los colegios cercanos
+    </button>
+  
+    <button ion-button icon-start block class="btnBusqueda" (click)="buscarPorFiltros()">
+      <ion-icon name="funnel"></ion-icon>
+      Personaliza tu búsqueda
+    </button>
+  </div>
 
-  <button ion-button icon-start block (click)="buscarPorGeolocalizacion()">
-    <ion-icon name="pin"></ion-icon>
-    POR GEOLOCALIZACION
-  </button>
+  
 </ion-content>

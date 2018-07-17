@@ -14,33 +14,39 @@
 
 
 <ion-content padding>
-  <ion-card style="position: relative">  
-      <ion-grid>
-          <ion-row>
-              <ion-col col-9>
-                  <ion-card-header>
-                      {{nombreColegio}}
-                    </ion-card-header>
-                    <ion-card-content>
-                      {{direccion}}
-                
-                      {{website}}
-                    </ion-card-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let result of resultados">
+      <ion-item>
+        <ion-card style="position: relative">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-11>
+                <ion-card-header>
+                  {{result.nombreColegio}}
+                </ion-card-header>
+                <ion-card-content>
+                  {{result.direccion}} 
+                <br/>
+                  {{result.website}}
+                </ion-card-content>
               </ion-col>
-            <ion-col col-1>
-                <button ion-button [ngStyle]="{'background-color': buttonColor}" (click)="addFavoritos()">
-                    <ion-icon name="star"></ion-icon>
-                  </button>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-              <button ion-button icon-start block (click)="verMapa()">
-                  <ion-icon name="pin"></ion-icon>
-                  Ver Mapa
+              <ion-col col-1>
+                <button ion-button class="btnFavorito" [ngStyle]="{'background-color': buttonColor}" (click)="addFavoritos($event)">
+                  <ion-icon name="star"></ion-icon>
                 </button>
-          </ion-row>
-   </ion-grid>
-   
-  
-  </ion-card>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <button ion-button icon-start block (click)="verMapa()">
+                <ion-icon name="pin"></ion-icon>
+                Ver Mapa
+              </button>
+            </ion-row>
+          </ion-grid>
+
+
+        </ion-card>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

@@ -17,13 +17,32 @@ import { UsuarioModel } from '../../models';
   templateUrl: 'result.html',
 })
 export class ResultPage {
-  nombreColegio: string = "Academia de Humanidades";
-  direccion:string = "Av. Recoleta 1234";
-  website: string = "http://www.academia.cl";
+
+  resultados: Array<Object> = [
+    {
+      nombreColegio: "Academia de Humanidades",
+      direccion: "Av. Recoleta 797",
+      website: "http://www.academiahumanidades.cl/"
+    },
+    {
+      nombreColegio: "Liceo Leonardo Murialdo",
+      direccion: "Sta Filomena 159",
+      website: "http://www.liceomurialdo.cl/"
+    },
+    {
+      nombreColegio: "Albert Einstein",
+      direccion: "El Roble 1172",
+      website: "Sitio web no encontrado."
+    }
+  ];
+ /*  nombreColegio: string = "Academia de Humanidades";
+  direccion: string = "Av. Recoleta 1234";
+  website: string = "http://www.academia.cl"; */
+  
   favorito: boolean = false;
-buttonColor: string = "#BFC9CA"
-posicion: string = "absolute !important";
-propDerecha: string = " 0 !important;";
+  buttonColor: string = "#BFC9CA"
+ 
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public usuarioModel: UsuarioModel) {
   }
 
@@ -31,19 +50,20 @@ propDerecha: string = " 0 !important;";
     console.log('ionViewDidLoad ResultPage');
   }
 
-  addFavoritos(){
-    if(!this.favorito){
+  addFavoritos(event) {
+    console.log(event);
+    if (!this.favorito) {
       this.buttonColor = '#ffbf00';
       this.favorito = true;
       //this.usuarioModel.favoritos.push();
     }
-    else{
+    else {
       this.buttonColor = '#BFC9CA';
       this.favorito = false;
     }
   }
 
-  verMapa(){
-    this.navCtrl.push(VerMapaPage,  { "latitude": "-33.4235293", "longitude": "-70.6451146" });
+  verMapa() {
+    this.navCtrl.push(VerMapaPage, { "latitude": "-33.4235293", "longitude": "-70.6451146" });
   }
 }
